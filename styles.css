@@ -1,0 +1,537 @@
+:root {
+    --primary-color: #1a237e;
+    --secondary-color: #6cc96f;
+    --accent-color: #2196F3;
+    --text-light: #ffffff;
+    --text-dark: #1a237e;
+    --gradient-1: rgba(26, 35, 126, 0.75);
+    --gradient-2: rgba(33, 150, 243, 0.75);
+}
+
+/* Global styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(rgba(26, 35, 126, 0.8), rgba(33, 150, 243, 0.8)),
+                url('https://img.freepik.com/free-photo/medical-banner-with-doctor-holding-stethoscope_23-2149611199.jpg?w=2000');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h1 {
+    color: #fff;
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    background: #6cc96f;
+}
+
+/* Hero section */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    margin-top: -80px;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #6cc96f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #5bb85e;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(108, 201, 111, 0.3);
+}
+
+/* Services section */
+.services-section {
+    padding: 80px 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.services-section h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+    font-size: 3em;
+    color: #6cc96f;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1);
+}
+
+.service-details {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.service-details li {
+    margin: 10px 0;
+}
+
+.service-details i {
+    color: #6cc96f;
+    margin-right: 10px;
+}
+
+/* Achievements section */
+.achievements-section {
+    padding: 80px 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.achievements-section h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.achievement-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-icon {
+    font-size: 2.5em;
+    color: #6cc96f;
+    margin-bottom: 20px;
+}
+
+.achievement-number {
+    font-size: 2.5em;
+    color: #6cc96f;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Footer */
+.footer {
+    background: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1.4em;
+    }
+
+    .nav-menu {
+        gap: 1rem;
+    }
+
+    .nav-menu a {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.9em;
+    }
+
+    .services-grid,
+    .achievements-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+
+    .service-card,
+    .achievement-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 1.2em;
+    }
+
+    .nav-menu {
+        gap: 0.5rem;
+    }
+
+    .nav-menu a {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.8em;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile menu */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .nav-menu {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        padding: 5px 0;
+    }
+
+    .nav-menu a {
+        font-size: 0.9em;
+        padding: 5px 10px;
+    }
+
+    .logo {
+        margin-bottom: 5px;
+    }
+}
+
+/* Form styles */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px;
+    margin: 4px 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #6cc96f;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-group {
+    margin-bottom: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+    color: #fff;
+    font-size: 14px;
+}
+
+/* Appointment section styles */
+.appointment-section {
+    padding: 15px;
+    margin-top: 80px;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.appointment-container {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+}
+
+.appointment-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.appointment-title h2 {
+    font-size: 1.5em;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.appointment-title p {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.submit-btn {
+    background: #6cc96f;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 12px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+    .appointment-section {
+        padding: 20px;
+        align-items: center;
+    }
+
+    .appointment-container {
+        max-width: 600px;
+        padding: 30px;
+    }
+
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .appointment-title {
+        margin-bottom: 25px;
+    }
+
+    .appointment-title h2 {
+        font-size: 2em;
+    }
+
+    .appointment-title p {
+        font-size: 1em;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .form-label {
+        font-size: 15px;
+        margin-bottom: 6px;
+    }
+
+    .submit-btn {
+        padding: 15px;
+        font-size: 1.1em;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .appointment-section {
+        padding: 10px;
+    }
+
+    .appointment-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .appointment-title h2 {
+        font-size: 1.3em;
+    }
+
+    .form-label {
+        font-size: 13px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .submit-btn {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+} 

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Байланыс - МедЖүйе</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-icon {
+            font-size: 3em;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.1);
+            color: var(--accent-color);
+        }
+
+        .contact-card h3, .contact-card p {
+            color: #fff;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-card p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .contact-info {
+            color: var(--secondary-color);
+            font-size: 1.2em;
+            font-weight: 50;
+            margin-top: 15px;
+        }
+
+        .welcome-section {
+            text-align: center;
+            padding: 40px 40px;
+            background: rgba(2, 3, 16, 0.3);
+            margin-bottom: 40px;
+        }
+
+        .welcome-section h2 {
+            color: var(--text-light);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .welcome-section p {
+            color: var(--text-light);
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .map-container {
+            margin-top: 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hospital-user"></i>
+                </div>
+                <h1>МедЖүйе</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Басты бет</a></li>
+                <li><a href="services.html">Қызметтер</a></li>
+                <li><a href="appointment.html">Жазылу</a></li>
+                <li><a href="contacts.html" class="active">Байланыс</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome-section">
+            <div class="container">
+                <h2>Байланыс</h2>
+                <p>Бізбен байланысу үшін төмендегі ақпаратты қолданыңыз</p>
+            </div>
+        </section>
+
+        <div class="contact-container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-phone contact-icon"></i>
+                    <h3>Телефон</h3>
+                    <p>Күн сайын 09:00-18:00</p>
+                    <div class="contact-info">+7 (777) 123-45-67</div>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <h3>Электронды пошта</h3>
+                    <p>24/7 хабарласуға болады</p>
+                    <div class="contact-info">info@medjuye.kz</div>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt contact-icon"></i>
+                    <h3>Мекен-жайымыз</h3>
+                    <p>Алматы қаласы</p>
+                    <div class="contact-info">Абай даңғылы, 150</div>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.7615245529164!2d76.89340731544636!3d43.23843797913861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x388369c0a1f2b611%3A0x9d6eb5a6f5a8f7c0!2z0JDQsdCw0Lkg0LTQsNKj0pPRi9C70YssINCQ0LvQvNCw0YLRiw!5e0!3m2!1skk!2skz!4v1645000000000!5m2!1skk!2skz" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 МедЖүйе. Барлық құқықтар қорғалған.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

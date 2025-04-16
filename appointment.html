@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Жазылу - MedJüye</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --secondary-color: #009688;
+            --accent-color: #00796b;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(rgba(26, 35, 126, 0.8), rgba(33, 150, 243, 0.8)),
+                        url('https://img.freepik.com/free-photo/medical-banner-with-doctor-holding-stethoscope_23-2149611199.jpg?w=2000');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-light);
+            min-height: 100vh;
+        }
+
+        .appointment-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .appointment-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 40px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .form-group:hover {
+            transform: translateY(-2px);
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 90%;
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 15px rgba(0, 150, 136, 0.2);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M8 11.5l-6-6h12z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            padding-right: 40px;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            background: var(--secondary-color);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 150, 136, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .submit-btn i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .welcome-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(26, 35, 126, 0.3);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-section h2 {
+            color: var(--text-light);
+            font-size: 2em;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .welcome-section p {
+            color: var(--text-light);
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .doctor-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            display: none;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .doctor-info p {
+            color: var(--text-light);
+            margin: 5px 0;
+        }
+
+        .specialty {
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .error-message,
+        .success-message {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .error-message {
+            background: rgba(255, 87, 87, 0.1);
+            color: #ff5757;
+            border: 1px solid rgba(255, 87, 87, 0.2);
+        }
+
+        .success-message {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .appointment-container {
+                padding: 20px;
+            }
+
+            .appointment-form {
+                padding: 20px;
+            }
+
+            .welcome-section {
+                padding: 60px 20px;
+            }
+
+            .welcome-section h2 {
+                font-size: 2em;
+            }
+
+            .welcome-section p {
+                font-size: 1.1em;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h1>MedJüye</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Басты бет</a></li>
+                <li><a href="services.html">Қызметтер</a></li>
+                <li><a href="appointment.html">Жазылу</a></li>
+                <li><a href="contacts.html">Байланыс</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="appointment-section">
+        <div class="appointment-container">
+            <div class="appointment-title">
+                <h2>Дәрігерге жазылу</h2>
+                <p>Өзіңізге ыңғайлы уақытты таңдап, дәрігерге жазылыңыз</p>
+            </div>
+            
+            <form action="process_appointment.php" method="POST">
+                <div class="form-group">
+                    <label class="form-label">Аты-жөніңіз</label>
+                    <input type="text" name="name" required placeholder="Аты-жөніңізді енгізіңіз">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Телефон</label>
+                    <input type="tel" name="phone" required placeholder="+7 (XXX) XXX-XX-XX">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" name="email" required placeholder="email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Қалаған күн</label>
+                    <input type="date" name="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Бөлім</label>
+                    <select name="department" required>
+                        <option value="">Бөлімді таңдаңыз</option>
+                        <option value="therapy">Терапия</option>
+                        <option value="cardiology">Кардиология</option>
+                        <option value="neurology">Неврология</option>
+                        <option value="pediatrics">Педиатрия</option>
+                        <option value="gynecology">Гинекология</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Дәрігер</label>
+                    <select name="doctor" required>
+                        <option value="">Дәрігерді таңдаңыз</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Қосымша ақпарат</label>
+                    <textarea name="message" placeholder="Шағымдарыңыз немесе қосымша ақпарат"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-calendar-check"></i> Жазылуға өту
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 MedJüye. Барлық құқықтар қорғалған.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const departmentSelect = document.getElementById('department');
+            const doctorSelect = document.getElementById('doctor');
+            const doctorInfo = document.getElementById('doctorInfo');
+            const dateInput = document.getElementById('date');
+            const messageContainer = document.getElementById('messageContainer');
+
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+
+            // Check for messages in session
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('error')) {
+                showMessage(decodeURIComponent(urlParams.get('error')), 'error');
+            }
+            if (urlParams.has('success')) {
+                showMessage(decodeURIComponent(urlParams.get('success')), 'success');
+            }
+
+            // Update doctors when department changes
+            departmentSelect.addEventListener('change', function() {
+                const department = this.value;
+                doctorSelect.innerHTML = '<option value="">Дәрігерді таңдаңыз...</option>';
+                doctorInfo.style.display = 'none';
+
+                if (department) {
+                    fetch(`appointment.php?get_doctors=1&department=${department}`)
+                        .then(response => response.json())
+                        .then(doctors => {
+                            doctors.forEach(doctor => {
+                                const option = document.createElement('option');
+                                option.value = doctor.id;
+                                option.textContent = doctor.name;
+                                option.dataset.specialty = doctor.specialty;
+                                doctorSelect.appendChild(option);
+                            });
+                        })
+                        .catch(error => console.error('Error:', error));
+                }
+            });
+
+            // Show doctor info when selected
+            doctorSelect.addEventListener('change', function() {
+                const selectedOption = this.options[this.selectedIndex];
+                if (this.value && selectedOption.dataset.specialty) {
+                    doctorInfo.innerHTML = `
+                        <p><strong>${selectedOption.text}</strong></p>
+                        <p class="specialty">${selectedOption.dataset.specialty}</p>
+                    `;
+                    doctorInfo.style.display = 'block';
+                } else {
+                    doctorInfo.style.display = 'none';
+                }
+            });
+
+            // Show message function
+            function showMessage(message, type) {
+                const div = document.createElement('div');
+                div.className = type === 'error' ? 'error-message' : 'success-message';
+                div.textContent = message;
+                messageContainer.innerHTML = '';
+                messageContainer.appendChild(div);
+            }
+
+            // Form validation
+            document.querySelector('form').addEventListener('submit', function(e) {
+                const phone = document.getElementById('phone').value;
+                const phoneRegex = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
+
+                if (!phoneRegex.test(phone)) {
+                    e.preventDefault();
+                    showMessage('Телефон нөірін дұрыс форматта енгізіңіз: +7 (XXX) XXX-XX-XX', 'error');
+                }
+            });
+
+            // Phone number formatting
+            const phoneInput = document.getElementById('phone');
+            phoneInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 0) {
+                    if (value.length <= 1) {
+                        value = '+7 (' + value;
+                    } else if (value.length <= 4) {
+                        value = '+7 (' + value.substring(1);
+                    } else if (value.length <= 7) {
+                        value = '+7 (' + value.substring(1, 4) + ') ' + value.substring(4);
+                    } else if (value.length <= 9) {
+                        value = '+7 (' + value.substring(1, 4) + ') ' + value.substring(4, 7) + '-' + value.substring(7);
+                    } else {
+                        value = '+7 (' + value.substring(1, 4) + ') ' + value.substring(4, 7) + '-' + value.substring(7, 9) + '-' + value.substring(9, 11);
+                    }
+                }
+                e.target.value = value;
+            });
+        });
+    </script>
+</body>
+</html> 
